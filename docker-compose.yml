@@ -4,20 +4,32 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on:
+      - db
     ports:
       - '28081:28081'
+    networks:
+      - watcher
+
   db:
     image: 'mysql:8.0'
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
       MYSQL_DATABASE: 'about_us'
-      MYSQL_USER: 'root'
-      MYSQL_PASSWORD: 'root'
+      MYSQL_USER: 'root1'
+      MYSQL_PASSWORD: 'root1'
       MYSQL_ROOT_PASSWORD: 'root'
     volumes:
       - 'db_data:/var/lib/mysql'
     ports:
-      - '3307:3307'
+      - '3307:3306'
+    networks:
+      - watcher
+
+networks:
+  watcher:
+    driver: bridge
+
 volumes:
   db_data:
