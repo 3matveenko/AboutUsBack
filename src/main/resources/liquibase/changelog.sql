@@ -2,18 +2,22 @@
 
 -- changeset liquibase:1
 
-create table t_click
-(
-    id   bigint auto_increment
-        primary key,
-    time datetime(6) null
-);
-
 create table t_value
 (
     id   bigint auto_increment
         primary key,
     name varchar(255) null
+);
+
+
+create table t_click
+(
+    id       bigint auto_increment
+        primary key,
+    time     datetime(6) null,
+    value_id bigint      null,
+    constraint FKgwj8cme7ycviek7jrmt8xij94
+        foreign key (value_id) references t_value (id)
 );
 
 INSERT INTO t_value (name)

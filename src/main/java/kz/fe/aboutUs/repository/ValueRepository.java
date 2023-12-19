@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ValueRepository extends JpaRepository<Value, Long> {
 
+    Value findValueByName(String name);
+
 }
