@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/main.html">
+
+<div layout:fragment="main-content">
+    <label for="dateInputStart">Выберите даты</label>
+    <form class="d-flex " method="post" th:action="@{'/between_date'}">
+        <input th:value="${date1}" required name="date1" type="date" class="form-input mt-3" id="dateInputStart">
+        <input th:value="${date2}" required name="date2" type="date" class="form-input mt-3" id="dateInputEnd">
+        <button class="btn form-input btn-outline-secondary mt-3 ms-2">Выбрать</button>
+    </form>
+
+    <table class="table table-hover mt-3 table-bordered">
+        <tbody>
+        <tr>
+            <td class="align-middle text-center" style="width: 50%;">Постоянный покупатель</td>
+            <td class="align-middle text-center" th:text="${clickCount.getRegularCustomer()}"></td>
+        </tr>
+        <tr>
+            <td class="align-middle text-center">Оптовик</td>
+            <td class="align-middle text-center" th:text="${clickCount.getWholesale()}"></td>
+        </tr>
+        <tr>
+            <td class="align-middle text-center">По рекомендации</td>
+            <td class="align-middle text-center" th:text="${clickCount.getRecommended()}"></td>
+        </tr>
+        <tr>
+            <td class="align-middle text-center">Яндекс</td>
+            <td class="align-middle text-center" th:text="${clickCount.getYandex()}"></td>
+        </tr>
+        <tr>
+            <td class="align-middle text-center">Google</td>
+            <td class="align-middle text-center" th:text="${clickCount.getGoogle()}"></td>
+        </tr>
+        <tr>
+            <td class="align-middle text-center">Instagram</td>
+            <td class="align-middle text-center" th:text="${clickCount.getInstagram()}"></td>
+        </tr>
+        <tr>
+            <td class="align-middle text-center">Tik tok</td>
+            <td class="align-middle text-center" th:text="${clickCount.getTikTok()}"></td>
+        </tr>
+        <tr>
+            <td class="align-middle text-center">YouTube</td>
+            <td class="align-middle text-center" th:text="${clickCount.getYoutube()}"></td>
+        </tr>
+        <tr>
+            <td class="align-middle text-center">2GIS</td>
+            <td class="align-middle text-center" th:text="${clickCount.getTwogis()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>
