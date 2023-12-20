@@ -14,44 +14,44 @@ create table t_click
 (
     id       bigint auto_increment
         primary key,
-    time     datetime(6) null,
+    date     datetime(6) null,
     value_id bigint      null,
     constraint FKgwj8cme7ycviek7jrmt8xij94
         foreign key (value_id) references t_value (id)
 );
 
 INSERT INTO t_value (name)
-SELECT 'Постоянный покупатель'
-WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'Постоянный покупатель');
+SELECT 'regularCustomer'
+WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'regularCustomer');
 
 INSERT INTO t_value (name)
-SELECT 'Оптовик'
-    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'Оптовик');
+SELECT 'wholesale'
+    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'wholesale');
 
 INSERT INTO t_value (name)
-SELECT 'По рекомендации'
-    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'По рекомендации');
+SELECT 'recommended'
+    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'recommended');
 
 INSERT INTO t_value (name)
-SELECT 'Яндекс'
-    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'Яндекс');
+SELECT 'yandex'
+    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'yandex');
 
 INSERT INTO t_value (name)
-SELECT 'Google'
-    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'Google');
+SELECT 'google'
+    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'google');
 
 INSERT INTO t_value (name)
-SELECT 'Instagram'
-    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'Instagram');
+SELECT 'instagram'
+    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'instagram');
 
 INSERT INTO t_value (name)
-SELECT 'Tik tok'
-    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'Tik tok');
+SELECT 'tikTok'
+    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'tikTok');
 
 INSERT INTO t_value (name)
-SELECT 'YouTube'
-    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'YouTube');
+SELECT 'youtube'
+    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'youtube');
 
 INSERT INTO t_value (name)
-SELECT '2GIS'
-    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = '2GIS');
+SELECT 'twogis'
+    WHERE NOT EXISTS (SELECT 1 FROM t_value WHERE name = 'twogis');
